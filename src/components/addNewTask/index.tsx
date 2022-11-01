@@ -10,6 +10,8 @@ export function AddNewTask() {
     const { createTask } = useContext(TaskContext);
 
     const handleCreateTask = () => {
+        if ( taskDescription === '' ) return
+        
         createTask(taskDescription);
         setTaskDescription("");
     }

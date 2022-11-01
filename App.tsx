@@ -1,19 +1,25 @@
+import { StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { TasksProvider } from './src/contexts/task/provider';
+import { Home } from './src/screens/home';
+import { colors } from './src/styles/colors';
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <TasksProvider>
+      <View style={styles.container}>
+        <Home/>
+        <StatusBar style="dark" />
+      </View>
+    </TasksProvider>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: colors.gray[600],
     alignItems: 'center',
     justifyContent: 'center',
   },
